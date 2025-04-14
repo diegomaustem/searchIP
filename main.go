@@ -1,11 +1,14 @@
 package main
 
 import (
-	"fmt"
 	"initial/app"
+	"log"
+	"os"
 )
 
 func main() {
 	application := app.Generate()
-	fmt.Println(application)
+	if error := application.Run(os.Args); error != nil {
+		log.Fatal(error)	
+	}
 }
